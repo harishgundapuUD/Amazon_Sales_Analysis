@@ -4,6 +4,7 @@ import numpy as np
 import re
 from geopy.geocoders import Nominatim
 import time
+import math
 
 # Question 1
 
