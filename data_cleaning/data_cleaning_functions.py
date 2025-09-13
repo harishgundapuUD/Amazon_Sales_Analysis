@@ -40,8 +40,8 @@ def clean_price(value):
         try:
             return float(cleaned) if '.' in cleaned else int(cleaned)
         except ValueError:
-            return np.nan
-    return np.nan  # For other types (e.g., None)
+            return None
+    return None # For other types (e.g., None)
 
 # Example usage
 # df['original_price_inr_cleaned'] = df['original_price_inr'].apply(clean_price)
