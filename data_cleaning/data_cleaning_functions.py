@@ -169,6 +169,29 @@ input city is: Delhi NCR
 output city is: Gurugram
 """
 
+## method 2
+
+import pandas as pd
+from rapidfuzz import process, fuzz
+
+# Load your data
+df = pd.read_csv("your_file.csv")  # Replace with your file name
+input_cities = df["input_city"].astype(str)
+
+# Assume your true city names list is available
+true_cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"]  # Replace with your actual list
+
+# Define a function to find the closest match
+def get_best_match(city, choices, threshold=80):
+    match, score, _ = process.extractOne(city, choices, scorer=fuzz.WRatio)
+    return match if score >= threshold else city  # fallback to original if no good match
+
+# Apply the function to the dataframe
+df["clean_city"] = input_cities.apply(lambda x: get_best_match(x, true_cities))
+
+# Save the corrected file
+df.to_csv("corrected_cities.csv", index=False)
+
 
 
 
