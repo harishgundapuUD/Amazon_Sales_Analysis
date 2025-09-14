@@ -13,6 +13,8 @@ class DataCleaning:
             "chenai": "chennai",
             "delhi ncr": "delhi",
             "navi mumbai": "mumbai",
+            "new delhi": "delhi",
+            "delhi ncr": "delhi"
         }
         self.payment_map = {
             'UPI': ['upi', 'phonepe', 'googlepay'],

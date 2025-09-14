@@ -3,3 +3,5 @@ geopy
 dateutil
 numpy
 math
+nbformat
+kaleido
